@@ -1,5 +1,3 @@
-//Modale
-
 const modal = document.querySelector('#modal');
 const modalContent = document.querySelector('#modal-content');
 const modalPhoto = document.querySelector('#modal-photo');
@@ -217,6 +215,7 @@ function addNewWork(event) {
 }
 
 //Preview
+
 const inputImage = document.getElementById("image");
 const labelImage = document.getElementById("label-image");
 const pImage = document.querySelector("#form-photo-div > p");
