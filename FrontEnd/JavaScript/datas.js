@@ -72,11 +72,29 @@ for (let i = 0; i < boutonsFiltre.length; i++) {
                 sectionWorks.innerHTML = "";
                 getWorks(hotelsEtRestaurants)
                 break
-                
+
         };
     });
 };
 
+//Categories
+
+const selectCategory = document.getElementById('modal-photo-category');
+
+const reponseCategory = fetch('http://localhost:5678/api/categories')
+    .then((response) => response.json())
+    .then((data) => {
+        data.forEach((category) => {
+            const categoryOption = document.createElement('option')
+            const categoryLabel = document.createElement('label')
+
+            categoryOption.setAttribute('value', category.id)
+            categoryLabel.innerHTML = category.name
+
+            selectCategory.appendChild(categoryOption)
+            categoryOption.appendChild(categoryLabel)
+        });
+    });
 
 
 
