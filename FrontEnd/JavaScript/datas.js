@@ -97,6 +97,43 @@ const reponseCategory = fetch('http://localhost:5678/api/categories')
     });
 
 
+//Login
+
+const loginStatus = document.getElementById("login")
+const logoutStatus = document.getElementById("logout")
+const adminStatus = document.getElementById("admin-logged")
+const figureModify = document.getElementById("figure-modify")
+const description = document.getElementById("figure-modify-a")
+const portfolioModify = document.getElementById("portfolio-l-modify")
+const filtreModify = document.querySelector('.filtre')
+
+
+if (JSON.parse(sessionStorage.getItem("isConnected"))) {
+    loginStatus.style.display = 'none'
+    logoutStatus.style.display = 'block'
+    adminStatus.style.display = 'flex'
+    figureModify.style.display = 'flex'
+    portfolioModify.style.display = 'flex'
+    filtreModify.style.display = 'none'
+    description.style.display = 'flex'
+
+} else {
+    loginStatus.style.display = 'block'
+    logoutStatus.style.display = 'none'
+    adminStatus.style.display = 'none'
+    figureModify.style.display = 'none'
+    portfolioModify.style.display = 'none'
+    filtreModify.style.display = 'flex'
+    description.style.display = 'none'
+}
+
+//Reset de la connexion
+logoutStatus.addEventListener("click", (event) => {
+    event.preventDefault();
+    sessionStorage.removeItem("Token");
+    sessionStorage.removeItem("isConnected");
+    window.location.replace("index.html");
+});
 
 
 
@@ -104,19 +141,5 @@ const reponseCategory = fetch('http://localhost:5678/api/categories')
 
 
 
-
-
-
-//getCategoryId()
-
-/* const categoryObjets = works.filter(function (workCategory){
-    return workCategory.categoryId === 1;
-})
-console.log(categoryObjets)
-
-const categoryAppartements = works.filter(function (workCategory){
-    return workCategory.categoryId === 2;
-})
-console.log(categoryAppartements) */
 
 
