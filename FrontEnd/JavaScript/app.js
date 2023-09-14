@@ -1,7 +1,7 @@
-const reponse = await fetch("http://localhost:5678/api/works");
-const works = await reponse.json();
-
-const sectionWorks = document.querySelector(".gallery");
+import {
+    works, sectionWorks, objets, appartements, hotelsEtRestaurants, boutonsFiltre, loginStatus,
+    logoutStatus, adminStatus, figureModify, description, portfolioModify, filtreModify
+} from "./constants.js";
 
 //Affichage dynamique
 
@@ -31,20 +31,6 @@ getWorks(works);
 
 //Filtre
 
-const objets = works.filter((work) => {
-    return work.categoryId === 1;
-});
-
-const appartements = works.filter((work) => {
-    return work.categoryId === 2;
-});
-
-const hotelsEtRestaurants = works.filter((work) => {
-    return work.categoryId === 3;
-});
-
-const boutonsFiltre = document.querySelectorAll(".filtre button");
-
 for (let i = 0; i < boutonsFiltre.length; i++) {
     boutonsFiltre[i].addEventListener("click", (event) => {
         const IdBouton = event.target.id;
@@ -70,36 +56,8 @@ for (let i = 0; i < boutonsFiltre.length; i++) {
     });
 };
 
-//Categories
-
-const selectCategory = document.getElementById('modal-photo-category');
-
-const reponseCategory = fetch('http://localhost:5678/api/categories')
-    .then((response) => response.json())
-    .then((data) => {
-        data.forEach((category) => {
-            const categoryOption = document.createElement('option')
-            const categoryLabel = document.createElement('label')
-
-            categoryOption.setAttribute('value', category.id)
-            categoryLabel.innerHTML = category.name
-
-            selectCategory.appendChild(categoryOption)
-            categoryOption.appendChild(categoryLabel)
-        });
-    });
-
 
 //Login
-
-const loginStatus = document.getElementById("login")
-const logoutStatus = document.getElementById("logout")
-const adminStatus = document.getElementById("admin-logged")
-const figureModify = document.getElementById("figure-modify")
-const description = document.getElementById("figure-modify-a")
-const portfolioModify = document.getElementById("portfolio-l-modify")
-const filtreModify = document.querySelector('.filtre')
-
 
 if (JSON.parse(sessionStorage.getItem("isConnected"))) {
     loginStatus.style.display = 'none'
