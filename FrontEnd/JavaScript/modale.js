@@ -1,11 +1,9 @@
+import {
+    modal, modalContent, modalPhoto, modalClose, modalShow, newPhotoBtn, returnBtn, modalPhotoClose,
+    titleInput, categorySelect, imageInput, submitButton, inputImage, labelImage, pImage, iconeImage
+} from "./constants.js";
+
 //Modale
-
-const modal = document.querySelector('#modal');
-const modalContent = document.querySelector('#modal-content');
-const modalPhoto = document.querySelector('#modal-photo');
-const modalClose = document.querySelector('#modal-close');
-
-const modalShow = document.querySelector('#modal-trigger');
 
 function showModal() {
     modal.style.display = 'block';
@@ -32,11 +30,6 @@ modal.addEventListener('click', hideModal);
 
 //Bouton ajouter photo
 
-const newPhotoBtn = document.querySelector('#new-photo');
-const returnBtn = document.querySelector('#modal-return');
-const modalPhotoClose = document.querySelector("#modal-photo-close");
-
-
 newPhotoBtn.addEventListener('click', function () {
     modalContent.style.display = 'none';
     modalPhoto.style.display = 'block';
@@ -48,7 +41,6 @@ returnBtn.addEventListener('click', function () {
 })
 
 modalPhotoClose.addEventListener('click', hideModal);
-
 
 
 //Ajouter travaux à la modale
@@ -124,6 +116,7 @@ function deleteWorkById(workId) {
     }
 }
 
+
 //Supprimer gallerie
 
 function deleteGallery() {
@@ -148,11 +141,6 @@ document.getElementById("delete-gallery").addEventListener("click", function () 
         deleteGallery();
     }
 });
-
-const titleInput = document.getElementById('modal-photo-title');
-const categorySelect = document.getElementById('modal-photo-category');
-const imageInput = document.getElementById('image');
-const submitButton = document.getElementById('modal-valider');
 
 function checkForm() {
     if (titleInput.value !== '' && categorySelect.value !== '' && imageInput.value !== '') {
@@ -220,11 +208,8 @@ function addNewWork(event) {
         .catch(error => console.error(error));
 }
 
+
 //Preview
-const inputImage = document.getElementById("image");
-const labelImage = document.getElementById("label-image");
-const pImage = document.querySelector("#form-photo-div > p");
-const iconeImage = document.querySelector("#iModalImage");
 
 inputImage.addEventListener("change", function () {
     const selectedImage = inputImage.files[0];

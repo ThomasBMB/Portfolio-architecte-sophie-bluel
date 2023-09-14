@@ -79,6 +79,7 @@ if (JSON.parse(sessionStorage.getItem("isConnected"))) {
 }
 
 //Reset de la connexion
+
 logoutStatus.addEventListener("click", (event) => {
     event.preventDefault();
     sessionStorage.removeItem("Token");

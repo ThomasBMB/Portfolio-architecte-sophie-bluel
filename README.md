@@ -1,13 +1,11 @@
-![bannière](./FrontEnd/assets/images/sophie-bluel-preview.png)
-
 # Sophie Bluel: Architecte d'intérieur
 
-Dans le cadre du projet 3 du parcours de développeur web du site OpenClassroom, l'objectif était la création d'une page web dynamique pour l'architecte Sophie Bluel, en utilsiant JavaScript, HTML et CSS.
+Dans le cadre du projet 3 du parcours de développeur web du site OpenClassroom, l'objectif était la création d'une page web dynamique pour l'architecte Sophie Bluel, en utilisant JavaScript, HTML et CSS.
 
 # Objectifs :
 
     - Rendre la page dynamique.
-    - Ajouter une page de conenxion administrateur.
+    - Ajouter une page de connexion administrateur.
     - Créer une modale pour l'ajout de travaux ou leur suppression.
 
 # Données du comtpe admin :
@@ -21,4 +19,4 @@ Dans le cadre du projet 3 du parcours de développeur web du site OpenClassroom,
     - Cloner le repository.
     - Lancer le terminal depuis le backend.
     - Utiliser les commandes npm install puis npm start.
-    - Prévisualiser le HTML avec une instance distincte.
+    - Prévisualiser le HTML avec une instance distincte, par exemple avec le serveur intégré de Virtual Studio Code.
