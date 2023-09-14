@@ -29,18 +29,8 @@ function getWorks(currentWorks) {
 
 getWorks(works);
 
+
 //Filtre
-
-/*let objets = new Set();
-let appartements = new Set();
-let hotelsEtRestaurants = new Set();
-
-for ( let i = 0; i < works.length; i++) {
-switch (wor)
-
-
-} */
-
 
 for (let i = 0; i < boutonsFiltre.length; i++) {
     boutonsFiltre[i].addEventListener("click", (event) => {
@@ -88,6 +78,7 @@ if (JSON.parse(sessionStorage.getItem("isConnected"))) {
     filtreModify.style.display = 'flex'
     description.style.display = 'none'
 }
+
 
 //Reset de la connexion
 

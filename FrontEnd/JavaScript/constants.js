@@ -79,6 +79,12 @@ export const newPhotoBtn = document.querySelector('#new-photo');
 export const returnBtn = document.querySelector('#modal-return');
 export const modalPhotoClose = document.querySelector("#modal-photo-close");
 
+//Preview
+
+export const inputImage = document.getElementById("image");
+export const labelImage = document.getElementById("label-image");
+export const pImage = document.querySelector("#form-photo-div > p");
+export const iconeImage = document.querySelector("#iModalImage");
 
 //Supprimer galerie
 
@@ -86,10 +92,3 @@ export const titleInput = document.getElementById('modal-photo-title');
 export const categorySelect = document.getElementById('modal-photo-category');
 export const imageInput = document.getElementById('image');
 export const submitButton = document.getElementById('modal-valider');
-
-//Preview
-
-export const inputImage = document.getElementById("image");
-export const labelImage = document.getElementById("label-image");
-export const pImage = document.querySelector("#form-photo-div > p");
-export const iconeImage = document.querySelector("#iModalImage");
