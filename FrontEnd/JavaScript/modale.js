@@ -117,7 +117,7 @@ function deleteWorkById(workId) {
 }
 
 
-//Supprimer gallerie
+//Supprimer galerie
 
 function deleteGallery() {
     const token = sessionStorage.getItem("Token");

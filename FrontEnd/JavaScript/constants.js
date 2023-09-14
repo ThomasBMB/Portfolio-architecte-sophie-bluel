@@ -80,7 +80,7 @@ export const returnBtn = document.querySelector('#modal-return');
 export const modalPhotoClose = document.querySelector("#modal-photo-close");
 
 
-//Supprimer gallerie
+//Supprimer galerie
 
 export const titleInput = document.getElementById('modal-photo-title');
 export const categorySelect = document.getElementById('modal-photo-category');

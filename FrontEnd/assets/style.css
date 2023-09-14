@@ -245,10 +245,6 @@ li:hover {
 
 }
 
-.gallery figure:hover {
-	transform: scale(1.02);
-}
-
 #contact {
 	width: 50%;
 	margin: auto;
