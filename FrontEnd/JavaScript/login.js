@@ -17,10 +17,10 @@ let boutonLogin = elements.submit.addEventListener("click", (a) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-        email: elements.email.value,
-        password: elements.password.value,
+            email: elements.email.value,
+            password: elements.password.value,
         }),
-        })
+    })
         .then((response) => response.json())
         .then((data) => {
             sessionStorage.setItem("Token", data.token);

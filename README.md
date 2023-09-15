@@ -17,6 +17,7 @@ Dans le cadre du projet 3 du parcours de développeur web du site OpenClassroom,
 
 - Il est important que NodeJs et NPM soient installés sur votre appareil.
 - Cloner le repository.
-- Lancer le terminal depuis le backend.
+- Lancer le terminal depuis le dossier du backend.
 - Utiliser les commandes npm install puis npm start.
-- Prévisualiser le HTML avec une instance distincte, par exemple avec le serveur intégré de Virtual Studio Code.
+- Visualiser le HTML avec une instance distincte, par exemple avec le serveur intégré de Virtual Studio Code, sans quoi le navigateur
+peut refuser d'importer des fichiers JS en local.
