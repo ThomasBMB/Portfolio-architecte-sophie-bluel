@@ -1,4 +1,4 @@
-//LOGIN ADMINISTRATOR//
+//Login
 
 const element = {
     password: document.querySelector("#password"),

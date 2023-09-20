@@ -54,7 +54,6 @@ const reponseCategory = fetch('http://localhost:5678/api/categories')
 //Objets
 
 function filtreObjet() {
-    //Display Objects//
     const elements = document.querySelectorAll('div.gallery figure');
     elements.forEach((element) => {
         const categoryId = element.getAttribute('category-id');
@@ -72,7 +71,6 @@ bouton.addEventListener('click', filtreObjet);
 //Hotel & restaurants
 
 function filtreHotelsRestaurants() {
-    //Display Hotels & restaurants//
     const elements = document.querySelectorAll('div.gallery figure');
     elements.forEach((element) => {
         const categoryId = element.getAttribute('category-id');
@@ -91,8 +89,6 @@ bouton.addEventListener('click', filtreHotelsRestaurants);
 //Appartements
 
 function filtreAppartements() {
-
-    //Display Appartements//
     const elements = document.querySelectorAll('div.gallery figure');
     elements.forEach((element) => {
         const categoryId = element.getAttribute('category-id');
@@ -107,10 +103,10 @@ function filtreAppartements() {
 var bouton = document.getElementById('btnAppartement');
 bouton.addEventListener('click', filtreAppartements);
 
+
 //Tous
 
 function filtreTous() {
-
     const elements = document.querySelectorAll('div.gallery figure');
     elements.forEach((element) => {
         element.style.display = 'block';
@@ -171,7 +167,9 @@ if (JSON.parse(sessionStorage.getItem("isConnected"))) {
     description.style.display = 'none'
 }
 
+
 //Reset de la connexion
+
 logoutStatus.addEventListener("click", (event) => {
     event.preventDefault();
     sessionStorage.removeItem("Token");
