@@ -1,4 +1,4 @@
-//MODAL//
+//Modale
 
 const modal = document.querySelector('#modal');
 const modalContent = document.querySelector('#modal-content');
@@ -26,7 +26,7 @@ modalClose.addEventListener('click', hideModal);
 modal.addEventListener('click', hideModal);
 
 
-//Add photo button//
+//Bouton ajouter photo
 
 const newPhotoBtn = document.querySelector('#new-photo');
 const returnBtn = document.querySelector('#modal-return');
@@ -47,7 +47,7 @@ modalPhotoClose.addEventListener('click', hideModal);
 
 
 
-//ADD WORKS TO THE MODAL//
+//Ajouter travaux à la modale
 
 const imagesModalContainer = document.querySelector('.gallery-modal')
 
@@ -86,7 +86,7 @@ fetch('http://localhost:5678/api/works')
   });
 
 
-//DELETE WORK//
+//Supprimer travail
 
 function deleteWorkById(workId) {
   const token = sessionStorage.getItem("Token");
@@ -121,32 +121,7 @@ function deleteWorkById(workId) {
   }
 }
 
-//Delete all gallery//
-
-function deleteGallery() {
-  const token = sessionStorage.getItem("Token");
-  const galleryWorks = document.querySelectorAll('.gallery-modal figure, .gallery figure');
-  galleryWorks.forEach((galleryWork) => {
-    const workId = galleryWork.getAttribute('data-id');
-    fetch(`http://localhost:5678/api/works/${workId}`, {
-      method: 'DELETE',
-      headers: {
-        "Accept": 'application/json',
-        "Authorization": `Bearer ${token}`
-      }
-    });
-    galleryWork.remove();
-  });
-}
-
-document.getElementById("delete-gallery").addEventListener("click", function () {
-  const confirmation = confirm("Êtes-vous sûr de vouloir supprimer la galerie ?");
-  if (confirmation) {
-    deleteGallery();
-  }
-});
-
-//Check form filled//
+//Vérification du formulaire
 
 const titleInput = document.getElementById('modal-photo-title');
 const categorySelect = document.getElementById('modal-photo-category');
@@ -166,7 +141,7 @@ categorySelect.addEventListener('change', checkForm);
 imageInput.addEventListener('change', checkForm);
 
 
-//ADD NEW WORK//
+//Ajout final du nouveau travail
 
 const btnValider = document.getElementById("modal-valider");
 btnValider.addEventListener("click", addNewWork);
@@ -230,7 +205,7 @@ function addNewWork(event) {
     .catch(error => console.error(error));
 }
 
-//PREVIEW IMG//
+//Prevew
 const inputImage = document.getElementById("image");
 const labelImage = document.getElementById("label-image");
 const pImage = document.querySelector("#form-photo-div > p");

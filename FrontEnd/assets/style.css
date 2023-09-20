@@ -318,23 +318,23 @@ footer nav ul {
 	border-width: 1px;
 	text-align: center;
 	border-radius: 60px;
-	padding: 7px 20px 7px 20px;
+	padding: 8px 20px;
 	margin-top: 30px;
 	margin-right: 10px;
 	margin-bottom: 25px;
+	cursor: pointer;
 }
 
 .bouton-css:focus,
 .bouton-css.selected {
 	background-color: #1D6154;
 	color: white;
-	border-width: 0px;
+
 }
 
 button[autofocus] {
 	outline: none;
 }
-
 
 /*login*/
 
@@ -348,6 +348,15 @@ body {
 
 #login {
 	display: block
+}
+
+#login-visited {
+	font-weight: 600;
+}
+
+#login-visited:hover {
+	color: #000000;
+	cursor: default;
 }
 
 
@@ -386,6 +395,7 @@ body {
 	height: 40px;
 	box-shadow: 0px 0px 15px rgba(244, 243, 237, 255);
 	border-width: 0px;
+	filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
 
 }
 

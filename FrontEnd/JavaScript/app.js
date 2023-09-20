@@ -1,76 +1,97 @@
-//RETRIEVAL OF THE ARCHITECT'S PROJECTS//
+//Affichage dynamique
 
 const imagesContainer = document.querySelector('.gallery')
 
 function createWorkFigure(work) {
-  const figure = document.createElement('figure')
-  const figureCaption = document.createElement('figcaption')
-  const figureImage = document.createElement('img')
+    const figure = document.createElement('figure')
+    const figureCaption = document.createElement('figcaption')
+    const figureImage = document.createElement('img')
 
-  figureImage.src = work.imageUrl
-  figureImage.alt = work.title
-  figureCaption.innerHTML = work.title
-  figure.setAttribute('data-id', work.id);
-  figure.setAttribute('category-id', work.categoryId)
-  
-  figure.appendChild(figureImage)
-  figure.appendChild(figureCaption)    
+    figureImage.src = work.imageUrl
+    figureImage.alt = work.title
+    figureCaption.innerHTML = work.title
+    figure.setAttribute('data-id', work.id);
+    figure.setAttribute('category-id', work.categoryId)
 
-  return figure;
+    figure.appendChild(figureImage)
+    figure.appendChild(figureCaption)
+
+    return figure;
 }
 
 fetch('http://localhost:5678/api/works')
-  .then((response) => response.json())
-  .then((data) => {
-    data.forEach((work) => {
-      const figure = createWorkFigure(work);
-      imagesContainer.appendChild(figure);
+    .then((response) => response.json())
+    .then((data) => {
+        data.forEach((work) => {
+            const figure = createWorkFigure(work);
+            imagesContainer.appendChild(figure);
+        });
     });
-  });
-    
-//FILTERS//
 
-//Filter Objects//
-        
-function filtreObjet(){
+
+//Categories
+
+const selectCategory = document.getElementById('modal-photo-category');
+
+const reponseCategory = fetch('http://localhost:5678/api/categories')
+    .then((response) => response.json())
+    .then((data) => {
+        data.forEach((category) => {
+            const categoryOption = document.createElement('option')
+            const categoryLabel = document.createElement('label')
+
+            categoryOption.setAttribute('value', category.id)
+            categoryLabel.innerHTML = category.name
+
+            selectCategory.appendChild(categoryOption)
+            categoryOption.appendChild(categoryLabel)
+        });
+    });
+
+
+//Filtres
+
+//Objets
+
+function filtreObjet() {
     //Display Objects//
     const elements = document.querySelectorAll('div.gallery figure');
     elements.forEach((element) => {
-      const categoryId = element.getAttribute('category-id');
-      if (categoryId === '1') {
-        element.style.display = 'block';
-      } else {
-        element.style.display = 'none';
-      }
+        const categoryId = element.getAttribute('category-id');
+        if (categoryId === '1') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
     });
 }
 var bouton = document.getElementById('btnObjet');
-bouton.addEventListener('click',filtreObjet);
-              
-       
-//Filter Hotel & restaurants//
-        
-function filtreHotelsRestaurants(){
+bouton.addEventListener('click', filtreObjet);
+
+
+//Hotel & restaurants
+
+function filtreHotelsRestaurants() {
     //Display Hotels & restaurants//
     const elements = document.querySelectorAll('div.gallery figure');
     elements.forEach((element) => {
-      const categoryId = element.getAttribute('category-id');
-      if (categoryId === '3') {
-        element.style.display = 'block';
-      } else {
-        element.style.display = 'none';
-      }
+        const categoryId = element.getAttribute('category-id');
+        if (categoryId === '3') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
     });
 }
 
 var bouton = document.getElementById('btnHotelRestaurant');
-bouton.addEventListener('click',filtreHotelsRestaurants);
+bouton.addEventListener('click', filtreHotelsRestaurants);
 
-        
-//Filter Appartements//
 
-function filtreAppartements(){
-            
+//Appartements
+
+function filtreAppartements() {
+
     //Display Appartements//
     const elements = document.querySelectorAll('div.gallery figure');
     elements.forEach((element) => {
@@ -84,43 +105,41 @@ function filtreAppartements(){
 }
 
 var bouton = document.getElementById('btnAppartement');
-bouton.addEventListener('click',filtreAppartements);
+bouton.addEventListener('click', filtreAppartements);
 
-//Filter all categories//
+//Tous
 
-function filtreTous(){
+function filtreTous() {
 
-    //Display all categories of works//
     const elements = document.querySelectorAll('div.gallery figure');
     elements.forEach((element) => {
         element.style.display = 'block';
-    });   
+    });
 }
 
 var bouton = document.getElementById('btnTous');
-bouton.addEventListener('click',filtreTous);
+bouton.addEventListener('click', filtreTous);
 
 
-//Function that keeps the filter button selected//
+//Fonction de persistance de la sélection du bouton
 
 const boutons = document.querySelectorAll('.bouton-css');
 
 boutons.forEach((bouton) => {
-    bouton.addEventListener('click', function() {
-      boutons.forEach((bouton) => {
-        bouton.classList.remove('selected');
-      });
-      this.classList.add('selected');
-      sessionStorage.setItem('boutonSelectionne', this.id);
+    bouton.addEventListener('click', function () {
+        boutons.forEach((bouton) => {
+            bouton.classList.remove('selected');
+        });
+        this.classList.add('selected');
+        sessionStorage.setItem('boutonSelectionne', this.id);
     });
-  });
-//allows to return to the "all filter" when reloading the page
-window.onbeforeunload = function(){
-sessionStorage.removeItem('boutonSelectionne');
+});
+window.onbeforeunload = function () {
+    sessionStorage.removeItem('boutonSelectionne');
 }
 
 
-//LOGIN ADMINISTRATOR//
+//Login
 
 const loginStatus = document.getElementById("login")
 const logoutStatus = document.getElementById("logout")
@@ -131,7 +150,7 @@ const portfolioModify = document.getElementById("portfolio-l-modify")
 const filtreModify = document.querySelector('.filtre')
 
 
-//displays the administrator elements//
+//Gestion de la connexion
 
 if (JSON.parse(sessionStorage.getItem("isConnected"))) {
     loginStatus.style.display = 'none'
@@ -141,7 +160,7 @@ if (JSON.parse(sessionStorage.getItem("isConnected"))) {
     portfolioModify.style.display = 'flex'
     filtreModify.style.display = 'none'
     description.style.display = 'flex'
-      
+
 } else {
     loginStatus.style.display = 'block'
     logoutStatus.style.display = 'none'
@@ -152,7 +171,7 @@ if (JSON.parse(sessionStorage.getItem("isConnected"))) {
     description.style.display = 'none'
 }
 
-//Reset user's connexion state//
+//Reset de la connexion
 logoutStatus.addEventListener("click", (event) => {
     event.preventDefault();
     sessionStorage.removeItem("Token");
@@ -160,22 +179,3 @@ logoutStatus.addEventListener("click", (event) => {
     window.location.replace("index.html");
 });
 
-
-//Categories//
-
-const selectCategory = document.getElementById('modal-photo-category');
-
-const reponseCategory = fetch('http://localhost:5678/api/categories')
-.then((response) => response.json())
-.then((data) => {
-  data.forEach((category) => {
-    const categoryOption = document.createElement('option')
-    const categoryLabel = document.createElement('label')
-
-    categoryOption.setAttribute('value', category.id)
-    categoryLabel.innerHTML = category.name
-
-    selectCategory.appendChild(categoryOption)
-    categoryOption.appendChild(categoryLabel)
-  });
-});
