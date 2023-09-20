@@ -161,7 +161,7 @@ function addNewWork(event) {
     return;
   }
 
-  //check if the image does not exceed 4mo//
+ 
   if (image.size > 4 * 1024 * 1024) {
     alert("La taille de l'image ne doit pas dépasser 4 Mo.");
     return;
@@ -182,12 +182,12 @@ function addNewWork(event) {
   })
     .then(response => response.json())
     .then(work => {
-      //create and add the new work to the gallery//
+
       const figure = createWorkFigure(work);
       const gallery = document.querySelector('.gallery');
       gallery.appendChild(figure);
 
-      //create and add the new work to the modal gallery//
+
       const figureModal = createModalWorkFigure(work);
       const galleryModal = document.querySelector('.gallery-modal');
       galleryModal.appendChild(figureModal);
@@ -205,7 +205,8 @@ function addNewWork(event) {
     .catch(error => console.error(error));
 }
 
-//Prevew
+//Preview
+
 const inputImage = document.getElementById("image");
 const labelImage = document.getElementById("label-image");
 const pImage = document.querySelector("#form-photo-div > p");
