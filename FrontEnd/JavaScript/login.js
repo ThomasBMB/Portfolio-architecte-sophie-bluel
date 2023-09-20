@@ -1,13 +1,13 @@
-//Login Admin
+//LOGIN ADMINISTRATOR//
 
-const elements = {
+const element = {
     password: document.querySelector("#password"),
     email: document.querySelector("#email"),
     submit: document.querySelector("#submitUserInfo"),
 };
 
 
-let boutonLogin = elements.submit.addEventListener("click", (a) => {
+let boutonLogin = element.submit.addEventListener("click", (a) => {
     a.preventDefault();
 
     fetch("http://localhost:5678/api/users/login", {
@@ -17,10 +17,10 @@ let boutonLogin = elements.submit.addEventListener("click", (a) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            email: elements.email.value,
-            password: elements.password.value,
+        email: element.email.value,
+        password: element.password.value,
         }),
-    })
+        })
         .then((response) => response.json())
         .then((data) => {
             sessionStorage.setItem("Token", data.token);
@@ -33,3 +33,4 @@ let boutonLogin = elements.submit.addEventListener("click", (a) => {
             }
         })
 });
+

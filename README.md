@@ -19,5 +19,4 @@ Dans le cadre du projet 3 du parcours de développeur web du site OpenClassroom,
 - Cloner le repository.
 - Lancer le terminal depuis le dossier du backend.
 - Utiliser les commandes npm install puis npm start.
-- Visualiser le HTML avec une instance distincte, par exemple avec le serveur intégré de Virtual Studio Code, sans quoi le navigateur
-peut refuser d'importer des fichiers JS en local.
+- Visualiser le HTML directement en cliquant sur index.html.
